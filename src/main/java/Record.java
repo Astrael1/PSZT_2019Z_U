@@ -1,13 +1,22 @@
 public class Record
 {
-    public Integer[] atttributes = new Integer[54];
-    public Integer resultClass;
+    private Integer[] attributes = new Integer[54];
+
+    public Integer getAttribute(Integer index) {
+        return attributes[index];
+    }
+
+    public Integer getResultClass() {
+        return resultClass;
+    }
+
+    private Integer resultClass;
 
     Record(String[] strings)
     {
         for(int i = 0; i < 54; i++)
         {
-            atttributes[i] = Integer.parseInt(strings[i]);
+            attributes[i] = Integer.parseInt(strings[i]);
         }
         resultClass = Integer.parseInt(strings[54]);
     }
