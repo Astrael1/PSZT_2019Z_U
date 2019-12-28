@@ -39,15 +39,61 @@ public class DecisionTree
         return entrophy(possibilitySet);
     }
 
-    double info(Integer nrOfAttribute, Set<Record> recordSet)
+    Vector<HashSet<Record>> splitByAttribute(Integer nrOfAttribute, Set<Record> recordSet)
     {
-        int recordSetCount = recordSet.size();
+        // create vector of subsets
         Vector<HashSet<Record>> subsets = new Vector<>();
         for(int i = 0; i < 5; i++)
         {
             subsets.add(new HashSet<Record>());
         }
-        return 0;
+
+        // distribute records according to value of attribute 'nrOfAttribute'
+        for(Record record: recordSet)
+        {
+            subsets.get(record.getAttribute(nrOfAttribute)).add(record);
+        }
+
+        return subsets;
+    }
+
+    double info( Integer recordSetCount, Vector<HashSet<Record>> subsets)
+    {
+        double result = 0.0;
+
+        // calculate the result
+        for(int i = 0; i <= 4; i++)
+        {
+            double tmp = ((double) subsets.get(i).size())/recordSetCount;
+            tmp *= info(subsets.get(i));
+            result += tmp;
+        }
+
+        return result;
+    }
+
+    double gain( Set<Record> recordSet, Vector<HashSet<Record>> subsets)
+    {
+        return info(recordSet) - info(recordSet.size(), subsets);
+    }
+
+    double splitInfo( Integer recordSetCount, Vector<HashSet<Record>> subsets)
+    {
+        Set<Double> weights = new HashSet<>();
+
+        for(Set set: subsets)
+        {
+            weights.add(((double)set.size())/recordSetCount);
+        }
+        return entrophy(weights);
+    }
+
+    double gainRatio(Integer nrOfAttribute, Set<Record> recordSet)
+    {
+        Vector<HashSet<Record>> subsets = splitByAttribute(nrOfAttribute, recordSet);
+        Integer recordSetCount = recordSet.size();
+
+        return gain( recordSet, subsets) / splitInfo(recordSetCount, subsets);
     }
 
 
