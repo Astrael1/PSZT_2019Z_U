@@ -1,12 +1,15 @@
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.Vector;
+package decisiontree;
 
-public class DecisionTree
+import inputhandling.Record;
+import javafx.util.Pair;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class DecisionTreeBuilder
 {
-    private Map<Integer, Integer> edges;
-    Vector<Integer> attributes;
+    List<Pair<AttributeNode, Pair<Set<Record> , Set<Integer> > > > taskList = new LinkedList<>();
 
     double entrophy(Set<Double> doubles)
     {
@@ -72,7 +75,7 @@ public class DecisionTree
         return result;
     }
 
-    double gain( Set<Record> recordSet, Vector<HashSet<Record>> subsets)
+    double gain(Set<Record> recordSet, Vector<HashSet<Record>> subsets)
     {
         return info(recordSet) - info(recordSet.size(), subsets);
     }
@@ -94,6 +97,58 @@ public class DecisionTree
         Integer recordSetCount = recordSet.size();
 
         return gain( recordSet, subsets) / splitInfo(recordSetCount, subsets);
+    }
+
+    void prepareNode(AttributeNode node, Set<Record> recordSet, Set<Integer> attributeSet)
+    {
+        Integer bestAttribute = 0;
+        Double bestGainRatio = 0.0;
+        for(Integer attributeNr: attributeSet)
+        {
+            double newRatio = gainRatio(attributeNr, recordSet);
+            if( newRatio > bestGainRatio)
+            {
+                bestAttribute = attributeNr;
+                bestGainRatio = newRatio;
+            }
+        }
+
+        node.splitAttribute = bestAttribute;
+
+        Set<Integer> newAttributeSet = new HashSet<>(attributeSet);
+        newAttributeSet.remove(bestAttribute);
+
+        Vector<HashSet<Record>> subsets = splitByAttribute(bestAttribute, recordSet);
+
+        for(int i = 0; i < 5; i++)
+        {
+            AttributeNode nodeToAppend = new AttributeNode();
+
+            nodeToAppend.ancestor = node;
+            node.children.add(nodeToAppend);
+
+            Pair<AttributeNode, Pair< Set<Record>, Set<Integer> > > anotherTask = new Pair<>(nodeToAppend, new Pair<>(subsets.get(i), newAttributeSet));
+            this.taskList.add(anotherTask);
+        }
+
+    }
+
+    public void build(Set<Record> recordSet)
+    {
+        taskList.clear();
+        AttributeNode firstNode = new AttributeNode();
+        Set<Integer> allAttributes = IntStream.range(0, 54).boxed().collect(Collectors.toSet());
+        Pair<AttributeNode, Pair< Set<Record>, Set<Integer> > > firstTask = new Pair<>(firstNode, new Pair<>(recordSet, allAttributes));
+
+        taskList.add(firstTask);
+        while (!taskList.isEmpty())
+        {
+            Pair<AttributeNode, Pair< Set<Record>, Set<Integer> > > task = taskList.get(0);
+            taskList.remove(0);
+
+            prepareNode(task.getKey(), task.getValue().getKey(), task.getValue().getValue());
+        }
+
     }
 
 

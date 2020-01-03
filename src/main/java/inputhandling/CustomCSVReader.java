@@ -1,11 +1,13 @@
+package inputhandling;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-class CustomCSVReader
+public class CustomCSVReader
 {
     private static final String delimiter = ";";
-    List<Record> read(String csvFile) throws IOException
+    public List<Record> read(String csvFile) throws IOException
     {
         List<Record> result = new ArrayList<>();
 
