@@ -2,14 +2,15 @@ package inputhandling;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CustomCSVReader
 {
     private static final String delimiter = ";";
-    public List<Record> read(String csvFile) throws IOException
+    public Set<Record> read(String csvFile) throws IOException
     {
-        List<Record> result = new ArrayList<>();
+        Set<Record> result = new HashSet<>();
 
         File file = new File(csvFile);
         FileReader fr = new FileReader(file);

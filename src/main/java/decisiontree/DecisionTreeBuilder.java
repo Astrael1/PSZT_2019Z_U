@@ -9,7 +9,9 @@ import java.util.stream.IntStream;
 
 public class DecisionTreeBuilder
 {
-    List<Pair<AttributeNode, Pair<Set<Record> , Set<Integer> > > > taskList = new LinkedList<>();
+    private List<Pair<Node, Pair<Set<Record> , Set<Integer> > > > taskList = new LinkedList<>();
+
+    private Integer mostAccurateDecision;
 
     double entrophy(Set<Double> doubles)
     {
@@ -17,13 +19,15 @@ public class DecisionTreeBuilder
 
         for(double i: doubles)
         {
-            result -= i * Math.log(i);
+            result -= i == 0.0 ? 0.0 :  i * Math.log(i);
         }
         return result;
     }
 
     double info(Set<Record> recordSet)
     {
+        if(recordSet.isEmpty())
+            return 0.0;
         Double possibility[] = new Double[2];
         possibility[0] = 0.0;
         possibility[1] = 0.0;
@@ -99,10 +103,33 @@ public class DecisionTreeBuilder
         return gain( recordSet, subsets) / splitInfo(recordSetCount, subsets);
     }
 
-    void prepareNode(AttributeNode node, Set<Record> recordSet, Set<Integer> attributeSet)
+    void prepareNode(Node nodeToProcess, Set<Record> recordSet, Set<Integer> attributeSet)
     {
+        if(recordSet.isEmpty())
+        {
+            nodeToProcess.makeLeaf(mostAccurateDecision);
+            return;
+        }
+
+        Integer classOccurances[] = new Integer[2];
+        classOccurances[0] = 0;
+        classOccurances[1] = 0;
+        for (Record record: recordSet)
+        {
+            Integer decisionClass = record.getResultClass();
+            classOccurances[decisionClass]++;
+        }
+
+        if(classOccurances[0] == 0 || classOccurances[1] == 0)
+        {
+            nodeToProcess.makeLeaf(classOccurances[0] != 0 ? 0 : 1);
+            return;
+        }
+
+        this.mostAccurateDecision = classOccurances[0] > classOccurances[1] ? 0 : 1;
+
         Integer bestAttribute = 0;
-        Double bestGainRatio = 0.0;
+        double bestGainRatio = 0.0;
         for(Integer attributeNr: attributeSet)
         {
             double newRatio = gainRatio(attributeNr, recordSet);
@@ -113,7 +140,7 @@ public class DecisionTreeBuilder
             }
         }
 
-        node.splitAttribute = bestAttribute;
+        nodeToProcess.splitAttribute = bestAttribute;
 
         Set<Integer> newAttributeSet = new HashSet<>(attributeSet);
         newAttributeSet.remove(bestAttribute);
@@ -122,34 +149,31 @@ public class DecisionTreeBuilder
 
         for(int i = 0; i < 5; i++)
         {
-            AttributeNode nodeToAppend = new AttributeNode();
+            Node nodeToAppend = new Node( nodeToProcess );
 
-            nodeToAppend.ancestor = node;
-            node.children.add(nodeToAppend);
+            nodeToProcess.children.add(nodeToAppend);
 
-            Pair<AttributeNode, Pair< Set<Record>, Set<Integer> > > anotherTask = new Pair<>(nodeToAppend, new Pair<>(subsets.get(i), newAttributeSet));
+            Pair<Node, Pair< Set<Record>, Set<Integer> > > anotherTask = new Pair<>(nodeToAppend, new Pair<>(subsets.get(i), newAttributeSet));
             this.taskList.add(anotherTask);
         }
 
     }
 
-    public void build(Set<Record> recordSet)
+    public Node build(Set<Record> recordSet)
     {
         taskList.clear();
-        AttributeNode firstNode = new AttributeNode();
+        Node firstNode = new Node();
         Set<Integer> allAttributes = IntStream.range(0, 54).boxed().collect(Collectors.toSet());
-        Pair<AttributeNode, Pair< Set<Record>, Set<Integer> > > firstTask = new Pair<>(firstNode, new Pair<>(recordSet, allAttributes));
+        Pair<Node, Pair< Set<Record>, Set<Integer> > > firstTask = new Pair<>(firstNode, new Pair<>(recordSet, allAttributes));
 
         taskList.add(firstTask);
         while (!taskList.isEmpty())
         {
-            Pair<AttributeNode, Pair< Set<Record>, Set<Integer> > > task = taskList.get(0);
+            Pair<Node, Pair< Set<Record>, Set<Integer> > > task = taskList.get(0);
             taskList.remove(0);
 
             prepareNode(task.getKey(), task.getValue().getKey(), task.getValue().getValue());
         }
-
+        return firstNode;
     }
-
-
 }

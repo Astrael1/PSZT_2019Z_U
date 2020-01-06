@@ -1,6 +1,35 @@
 package decisiontree;
 
+import java.util.Vector;
+
 public class Node
 {
-    public Node ancestor;
+    boolean isLeaf;
+    Integer decisionClass;
+    Node ancestor;
+    Integer splitAttribute;
+    Vector<Node> children;
+
+
+    public void makeLeaf(Integer decisionClass)
+    {
+        this.decisionClass = decisionClass;
+        isLeaf = true;
+    }
+
+    Node()
+    {
+        ancestor = null;
+        isLeaf = false;
+        decisionClass = -1;
+        children = new Vector<>();
+    }
+
+    Node( Node other )
+    {
+        ancestor = other;
+        isLeaf = false;
+        decisionClass = -1;
+        children = new Vector<>();
+    }
 }
