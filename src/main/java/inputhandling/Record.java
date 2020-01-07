@@ -1,3 +1,5 @@
+package inputhandling;
+
 public class Record
 {
     private Integer[] attributes = new Integer[54];
