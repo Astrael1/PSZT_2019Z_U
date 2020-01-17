@@ -1,7 +1,5 @@
 package inputhandling;
 
-import sun.awt.image.ImageWatched;
-
 import java.io.*;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -13,7 +11,6 @@ public class CustomCSVReader
     private static final String delimiter = ";";
     private int trainSize;
     private int pruneSize;
-    private int testSize;
 
     public Set<Record> read(String csvFile) throws IOException
     {
@@ -65,9 +62,9 @@ public class CustomCSVReader
 
     private void setSizes(Set<Record> set) {
         int size = set.size();
-        this.testSize = (int) (size * 0.3);
+        int testSize = (int) (size * 0.3);
         this.trainSize = (int) (size * 0.5);
-        this.pruneSize = size - this.trainSize - this.testSize;
+        this.pruneSize = size - this.trainSize - testSize;
     }
 
     private int selectSet(int count) {

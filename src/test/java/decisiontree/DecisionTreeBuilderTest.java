@@ -2,8 +2,6 @@ package decisiontree;
 
 import inputhandling.CustomCSVReader;
 import inputhandling.Record;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

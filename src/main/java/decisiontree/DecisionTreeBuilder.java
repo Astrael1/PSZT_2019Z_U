@@ -12,9 +12,9 @@ public class DecisionTreeBuilder
 
     private Integer mostAccurateDecision;
 
-    double entrophy(Set<Double> doubles)
+    double entropy(Set<Double> doubles)
     {
-        Double result = 0.0;
+        double result = 0.0;
 
         for(double i: doubles)
         {
@@ -27,22 +27,22 @@ public class DecisionTreeBuilder
     {
         if(recordSet.isEmpty())
             return 0.0;
-        Double possibility[] = new Double[2];
-        possibility[0] = 0.0;
-        possibility[1] = 0.0;
+        Double[] probability = new Double[2];
+        probability[0] = 0.0;
+        probability[1] = 0.0;
 
         for(Record record: recordSet)
         {
-            possibility[record.getResultClass()]++;
+            probability[record.getResultClass()]++;
         }
-        possibility[0] /= recordSet.size();
-        possibility[1] /= recordSet.size();
+        probability[0] /= recordSet.size();
+        probability[1] /= recordSet.size();
 
-        Set<Double> possibilitySet = new HashSet<>();
-        possibilitySet.add(possibility[0]);
-        possibilitySet.add(possibility[1]);
+        Set<Double> probabilitySet = new HashSet<>();
+        probabilitySet.add(probability[0]);
+        probabilitySet.add(probability[1]);
 
-        return entrophy(possibilitySet);
+        return entropy(probabilitySet);
     }
 
     Vector<HashSet<Record>> splitByAttribute(Integer nrOfAttribute, Set<Record> recordSet)
@@ -51,7 +51,7 @@ public class DecisionTreeBuilder
         Vector<HashSet<Record>> subsets = new Vector<>();
         for(int i = 0; i < 5; i++)
         {
-            subsets.add(new HashSet<Record>());
+            subsets.add(new HashSet<>());
         }
 
         // distribute records according to value of attribute 'nrOfAttribute'
@@ -91,7 +91,7 @@ public class DecisionTreeBuilder
         {
             weights.add(((double)set.size())/recordSetCount);
         }
-        return entrophy(weights);
+        return entropy(weights);
     }
 
     double gainRatio(Integer nrOfAttribute, Set<Record> recordSet)
@@ -110,22 +110,22 @@ public class DecisionTreeBuilder
             return;
         }
 
-        Integer classOccurances[] = new Integer[2];
-        classOccurances[0] = 0;
-        classOccurances[1] = 0;
+        Integer[] classOccurrences = new Integer[2];
+        classOccurrences[0] = 0;
+        classOccurrences[1] = 0;
         for (Record record: recordSet)
         {
             Integer decisionClass = record.getResultClass();
-            classOccurances[decisionClass]++;
+            classOccurrences[decisionClass]++;
         }
 
-        if(classOccurances[0] == 0 || classOccurances[1] == 0)
+        if(classOccurrences[0] == 0 || classOccurrences[1] == 0)
         {
-            nodeToProcess.makeLeaf(classOccurances[0] != 0 ? 0 : 1);
+            nodeToProcess.makeLeaf(classOccurrences[0] != 0 ? 0 : 1);
             return;
         }
 
-        this.mostAccurateDecision = classOccurances[0] > classOccurances[1] ? 0 : 1;
+        this.mostAccurateDecision = classOccurrences[0] > classOccurrences[1] ? 0 : 1;
 
         Integer bestAttribute = 0;
         double bestGainRatio = 0.0;

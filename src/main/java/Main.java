@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Main
 {
-    public static void main(String args[]) throws Exception
+    public static void main(String[] args) throws Exception
     {
         CustomCSVReader cr = new CustomCSVReader();
         Set<Record> dataSet = cr.read(System.getProperty("user.dir") + "/src/main/resources/divorce.csv");
