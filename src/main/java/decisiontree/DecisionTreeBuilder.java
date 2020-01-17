@@ -175,4 +175,24 @@ public class DecisionTreeBuilder
         }
         return firstNode;
     }
+
+    private boolean checkIfPrune(Node node, Node leaf) {
+        //TODO: porownanie wskaznika jakosci dla danych prunujacych
+        return false;
+    }
+
+    private int determineClass(Node node) {
+        //TODO: wybor odpowiedniej klasy dla liscia
+        return 0;
+    }
+
+    private Node prune(Node node, int decisionClass) {
+        node.makeLeaf(decisionClass);
+        return node;
+    }
+
+    public Node pruneTree(Node node) {
+        //TODO: przejscie przez wezly i sprawdzenie dla kazdego
+        return node;
+    }
 }

@@ -14,7 +14,8 @@ public class Node
     public void makeLeaf(Integer decisionClass)
     {
         this.decisionClass = decisionClass;
-        isLeaf = true;
+        this.isLeaf = true;
+        this.children = new Vector<>();
     }
 
     Node()

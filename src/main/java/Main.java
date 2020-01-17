@@ -12,6 +12,9 @@ public class Main
         CustomCSVReader cr = new CustomCSVReader();
         Set<Record> dataSet = cr.read(System.getProperty("user.dir") + "/src/main/resources/divorce.csv");
         List<Set<Record>> data = cr.splitSets(dataSet);
+        Set<Record> trainSet = data.get(0);
+        Set<Record> pruneSet = data.get(1);
+        Set<Record> testSet = data.get(2);
         DecisionTreeBuilder theBuilder = new DecisionTreeBuilder();
         Node root = theBuilder.build(data.get(0));
         System.out.println("done");

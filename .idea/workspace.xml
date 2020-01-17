@@ -10,10 +10,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/decisiontree/DecisionTreeBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/decisiontree/DecisionTreeBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/decisiontree/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/decisiontree/Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/inputhandling/CustomCSVReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/inputhandling/CustomCSVReader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/decisiontree/DecisionTreeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decisiontree/DecisionTreeBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inputhandling/CustomCSVReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/inputhandling/CustomCSVReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/decisiontree/DecisionTreeBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/decisiontree/DecisionTreeBuilderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/decisiontree/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decisiontree/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,38 +211,38 @@
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
     <state x="1780" y="98" width="1480" height="852" key="DiffContextDialog/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579179526449" />
-    <state width="1634" height="261" key="GridCell.Tab.0.bottom" timestamp="1579264545048">
+    <state width="1634" height="261" key="GridCell.Tab.0.bottom" timestamp="1579265684221">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
-    <state width="1634" height="261" key="GridCell.Tab.0.bottom/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579264545048" />
-    <state width="1634" height="261" key="GridCell.Tab.0.center" timestamp="1579264545048">
+    <state width="1634" height="261" key="GridCell.Tab.0.bottom/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
+    <state width="1634" height="261" key="GridCell.Tab.0.center" timestamp="1579265684221">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
-    <state width="1634" height="261" key="GridCell.Tab.0.center/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579264545048" />
-    <state width="1634" height="261" key="GridCell.Tab.0.left" timestamp="1579264545048">
+    <state width="1634" height="261" key="GridCell.Tab.0.center/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
+    <state width="1634" height="261" key="GridCell.Tab.0.left" timestamp="1579265684221">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
-    <state width="1634" height="261" key="GridCell.Tab.0.left/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579264545048" />
-    <state width="1634" height="261" key="GridCell.Tab.0.right" timestamp="1579264545048">
+    <state width="1634" height="261" key="GridCell.Tab.0.left/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
+    <state width="1634" height="261" key="GridCell.Tab.0.right" timestamp="1579265684221">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
-    <state width="1634" height="261" key="GridCell.Tab.0.right/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579264545048" />
-    <state width="1634" height="261" key="GridCell.Tab.1.bottom" timestamp="1579264545048">
+    <state width="1634" height="261" key="GridCell.Tab.0.right/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
+    <state width="1634" height="261" key="GridCell.Tab.1.bottom" timestamp="1579265684221">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
-    <state width="1634" height="261" key="GridCell.Tab.1.bottom/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579264545048" />
-    <state width="1634" height="261" key="GridCell.Tab.1.center" timestamp="1579264545048">
+    <state width="1634" height="261" key="GridCell.Tab.1.bottom/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
+    <state width="1634" height="261" key="GridCell.Tab.1.center" timestamp="1579265684221">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
-    <state width="1634" height="261" key="GridCell.Tab.1.center/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579264545048" />
-    <state width="1634" height="261" key="GridCell.Tab.1.left" timestamp="1579264545048">
+    <state width="1634" height="261" key="GridCell.Tab.1.center/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
+    <state width="1634" height="261" key="GridCell.Tab.1.left" timestamp="1579265684221">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
-    <state width="1634" height="261" key="GridCell.Tab.1.left/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579264545048" />
-    <state width="1634" height="261" key="GridCell.Tab.1.right" timestamp="1579264545048">
+    <state width="1634" height="261" key="GridCell.Tab.1.left/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
+    <state width="1634" height="261" key="GridCell.Tab.1.right" timestamp="1579265684221">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
-    <state width="1634" height="261" key="GridCell.Tab.1.right/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579264545048" />
+    <state width="1634" height="261" key="GridCell.Tab.1.right/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
     <state x="2003" y="101" width="1024" height="845" key="SettingsEditor" timestamp="1579165308837">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
@@ -264,13 +266,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>14</line>
+          <line>17</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/decisiontree/DecisionTreeBuilder.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="43" />
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
