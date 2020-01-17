@@ -1,7 +1,6 @@
 package decisiontree;
 
 import inputhandling.Record;
-import javafx.util.Pair;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -9,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class DecisionTreeBuilder
 {
-    private List<Pair<Node, Pair<Set<Record> , Set<Integer> > > > taskList = new LinkedList<>();
+    private List<Task> taskList = new LinkedList<>();
 
     private Integer mostAccurateDecision;
 
@@ -153,7 +152,7 @@ public class DecisionTreeBuilder
 
             nodeToProcess.children.add(nodeToAppend);
 
-            Pair<Node, Pair< Set<Record>, Set<Integer> > > anotherTask = new Pair<>(nodeToAppend, new Pair<>(subsets.get(i), newAttributeSet));
+            Task anotherTask = new Task(nodeToAppend, subsets.get(i), newAttributeSet);
             this.taskList.add(anotherTask);
         }
 
@@ -164,15 +163,15 @@ public class DecisionTreeBuilder
         taskList.clear();
         Node firstNode = new Node();
         Set<Integer> allAttributes = IntStream.range(0, 54).boxed().collect(Collectors.toSet());
-        Pair<Node, Pair< Set<Record>, Set<Integer> > > firstTask = new Pair<>(firstNode, new Pair<>(recordSet, allAttributes));
+        Task firstTask = new Task(firstNode, recordSet, allAttributes);
 
         taskList.add(firstTask);
         while (!taskList.isEmpty())
         {
-            Pair<Node, Pair< Set<Record>, Set<Integer> > > task = taskList.get(0);
+            Task task = taskList.get(0);
             taskList.remove(0);
 
-            prepareNode(task.getKey(), task.getValue().getKey(), task.getValue().getValue());
+            prepareNode(task.getNode(), task.getRecordSet(), task.getAttributeSet());
         }
         return firstNode;
     }
