@@ -7,6 +7,15 @@ import java.util.Set;
 public class Task {
     private Node node;
     private Set<Record> recordSet;
+    private Set<Integer> attributeSet;
+
+    Task() {}
+
+    Task(Node node, Set<Record> recordSet, Set<Integer> attributeSet) {
+        this.node = node;
+        this.recordSet = recordSet;
+        this.attributeSet = attributeSet;
+    }
 
     public Node getNode() {
         return node;
@@ -18,15 +27,6 @@ public class Task {
 
     public Set<Integer> getAttributeSet() {
         return attributeSet;
-    }
-
-    private Set<Integer> attributeSet;
-
-    Task() {}
-    Task(Node node, Set<Record> recordSet, Set<Integer> attributeSet) {
-        this.node = node;
-        this.recordSet = recordSet;
-        this.attributeSet = attributeSet;
     }
 
 }

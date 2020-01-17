@@ -10,9 +10,10 @@ public class Main
     public static void main(String args[]) throws Exception
     {
         CustomCSVReader cr = new CustomCSVReader();
-        Set<Record> trainingSet = cr.read(System.getProperty("user.dir") + "/src/main/resources/divorce.csv");
+        Set<Record> dataSet = cr.read(System.getProperty("user.dir") + "/src/main/resources/divorce.csv");
+        List<Set<Record>> data = cr.splitSets(dataSet);
         DecisionTreeBuilder theBuilder = new DecisionTreeBuilder();
-        Node root = theBuilder.build(trainingSet);
+        Node root = theBuilder.build(data.get(0));
         System.out.println("done");
     }
 }
