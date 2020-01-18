@@ -24,6 +24,5 @@ public class Main
         Node prunedRoot = theBuilder.pruneTree(root, pruneSet);
         double prunedRes = prunedRoot.evaluateDataSet(testSet);
         System.out.println("Pruned result: " + prunedRes);
-        System.out.println("done");
     }
 }

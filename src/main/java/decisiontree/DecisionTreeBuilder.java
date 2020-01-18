@@ -176,23 +176,33 @@ public class DecisionTreeBuilder
         return firstNode;
     }
 
-    private boolean checkIfPrune(Node node, Node leaf) {
-        //TODO: porownanie wskaznika jakosci dla danych prunujacych
+    private boolean checkIfPrune(Node node, Set<Record> pruneSet) throws CloneNotSupportedException {
+        /*Node newNode = (Node) node.clone();
+
+        Node oldNodeRoot = node.getRoot();
+        Node newNodeRoot = newNode.getRoot();
+
+        newNode.makeLeaf(newNode.determineClass(pruneSet));
+
+        double oldRes = oldNodeRoot.evaluateDataSet(pruneSet);
+        double newRes = newNodeRoot.evaluateDataSet(pruneSet);
+        System.out.println("old eval: " + oldRes + " new eval: " + newRes);
+        return newRes > oldRes*/
         return false;
     }
 
-    private int determineClass(Node node) {
-        //TODO: wybor odpowiedniej klasy dla liscia
-        return 0;
-    }
-
-    private Node prune(Node node, int decisionClass) {
-        node.makeLeaf(decisionClass);
-        return node;
-    }
-
-    public Node pruneTree(Node node, Set<Record> pruneSet) {
-        //TODO: przejscie przez wezly i sprawdzenie dla kazdego
+    public Node pruneTree(Node node, Set<Record> pruneSet) throws CloneNotSupportedException {
+        if(node.areChildrenLeaves() && checkIfPrune(node, pruneSet)) {
+            node.prune(pruneSet);
+            pruneTree(node.ancestor, pruneSet);
+        }
+        else {
+            for(Node i : node.children) {
+                if(!i.isLeaf && i.areChildrenLeaves()) {
+                    pruneTree(i, pruneSet);
+                }
+            }
+        }
         return node;
     }
 }

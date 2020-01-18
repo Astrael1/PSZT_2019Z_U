@@ -5,11 +5,11 @@ import inputhandling.Record;
 import java.util.Set;
 import java.util.Vector;
 
-public class Node {
+public class Node implements Cloneable {
     boolean isLeaf;
-    Integer decisionClass;
+    int decisionClass;
     Node ancestor;
-    Integer splitAttribute;
+    int splitAttribute;
     Vector<Node> children;
 
 
@@ -71,4 +71,53 @@ public class Node {
             }
         }
     }
+
+    public int determineClass(Set<Record> data) {
+        int count0 = 0;
+        int count1 = 0;
+        for(Record i : data) {
+            if(i.getResultClass() == 1) {
+                count1++;
+            }
+            else {
+                count0++;
+            }
+        }
+        return count0 > count1 ? 0 : 1;
+    }
+    public Node getRoot() {
+        if(this.ancestor == null) {
+            return this;
+        }
+        else {
+            return this.ancestor.getRoot();
+        }
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        Node result = (Node)super.clone();
+        result.ancestor = this.ancestor == null ? null : new Node(this.ancestor);
+        result.decisionClass = this.decisionClass;
+        result.isLeaf = this.isLeaf;
+        result.children = new Vector<>();
+        if(!this.isLeaf) {
+            for (int i = 0; i < 5; i++) {
+                result.children.insertElementAt((Node) this.children.elementAt(i).clone(), i);
+            }
+        }
+        return result;
+    }
+    public boolean areChildrenLeaves() {
+        for(int i = 0; i < 5; i++) {
+            if(!children.get(i).isLeaf) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void prune(Set<Record> dataSet) {
+        this.makeLeaf(this.determineClass(dataSet));
+    }
+
 }

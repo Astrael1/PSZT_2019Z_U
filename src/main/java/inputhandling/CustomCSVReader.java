@@ -1,10 +1,7 @@
 package inputhandling;
 
 import java.io.*;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CustomCSVReader
 {
@@ -36,12 +33,14 @@ public class CustomCSVReader
     }
 
     public List<Set<Record>> splitSets(Set<Record> input) {
+        ArrayList<Record> inputList = new ArrayList<>(input);
+        Collections.shuffle(inputList);
         List<Set<Record>> result = new LinkedList<>();
         int count = 0;
         Set<Record> trainSet = new HashSet<>();
         Set<Record> pruneSet = new HashSet<>();
         Set<Record> testSet = new HashSet<>();
-        for(Record i : input) {
+        for(Record i : inputList) {
             switch(selectSet(count)) {
                 case 0:
                     trainSet.add(i);
