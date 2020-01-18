@@ -180,15 +180,28 @@ public class DecisionTreeBuilder
         Node root = node.getRoot();
         Node newNode = (Node) node.clone();
         newNode.prune(pruneSet);
-        Node ancestor = node.ancestor;
-        int childIndex = ancestor.getChildIndex(node);
+        if(root == node) {
+            double oldRes = root.evaluateDataSet(pruneSet);
+            double newRes = newNode.evaluateDataSet(pruneSet);
+            if(newRes > oldRes) {
+                root = newNode;
+                System.out.println("Prune success " + newRes + " vs " + oldRes);
+            }
+        }
+        else {
+            Node ancestor = node.ancestor;
+            int childIndex = ancestor.getChildIndex(node);
 
-        double oldRes = root.evaluateDataSet(pruneSet);
+            double oldRes = root.evaluateDataSet(pruneSet);
 
-        ancestor.children.set(childIndex, newNode);
-        double newRes = root.evaluateDataSet(pruneSet);
-        if (newRes < oldRes) {
-            ancestor.children.set(childIndex, node);
+            ancestor.children.set(childIndex, newNode);
+            double newRes = root.evaluateDataSet(pruneSet);
+            if (newRes <= oldRes) {
+                ancestor.children.set(childIndex, node);
+            }
+            else {
+                System.out.println("Prune success " + newRes + " vs " + oldRes);
+            }
         }
         return root;
     }

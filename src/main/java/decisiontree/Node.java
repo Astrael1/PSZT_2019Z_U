@@ -136,8 +136,13 @@ public class Node implements Cloneable {
             return input;
         }
         else {
-            input.removeIf(i -> !(i.getAttribute(this.ancestor.splitAttribute) == this.ancestor.getChildIndex(this)));
-            return this.ancestor.getRecordsAtNode(input);
+            HashSet<Record> subset = new HashSet<>();
+            for(Record i : input) {
+                if(i.getAttribute(this.ancestor.splitAttribute) == this.ancestor.getChildIndex(this)) {
+                    subset.add(i);
+                }
+            }
+            return this.ancestor.getRecordsAtNode(subset);
         }
     }
 }
