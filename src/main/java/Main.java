@@ -4,6 +4,7 @@ import inputhandling.CustomCSVReader;
 import inputhandling.Record;
 import org.apache.commons.cli.*;
 
+import java.util.List;
 import java.util.Set;
 
 public class Main
@@ -13,7 +14,7 @@ public class Main
         Options options = new Options();
         options.addOption("t", false, "test option");
         options.addOption("l", true, "program learns from given source");
-        options.addOption("q", true, "program qualifies records from given source")
+        options.addOption("q", true, "program qualifies records from given source");
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd = parser.parse(options, args);
         return cmd;
