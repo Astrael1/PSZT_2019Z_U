@@ -191,7 +191,7 @@ public class DecisionTreeBuilder
         return node;
     }
 
-    public Node pruneTree(Node node) {
+    public Node pruneTree(Node node, Set<Record> pruneSet) {
         //TODO: przejscie przez wezly i sprawdzenie dla kazdego
         return node;
     }

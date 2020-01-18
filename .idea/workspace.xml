@@ -8,11 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/decisiontree/DecisionTreeBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/decisiontree/DecisionTreeBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/decisiontree/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/decisiontree/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/inputhandling/CustomCSVReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/inputhandling/CustomCSVReader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/decisiontree/DecisionTreeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decisiontree/DecisionTreeBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/decisiontree/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/decisiontree/Node.java" afterDir="false" />
@@ -81,12 +82,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="543" />
-    <option name="y" value="-19" />
-    <option name="width" value="683" />
-    <option name="height" value="728" />
-  </component>
   <component name="ProjectId" id="1WTE06JI9iEyBBjd8WN33VRZFxR" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -97,6 +92,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578179922296" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
@@ -163,9 +159,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.PSZT_2019Z_U [dependencies]" />
         <item itemvalue="JUnit.DecisionTreeBuilderTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.PSZT_2019Z_U [dependencies]" />
       </list>
     </recent_temporary>
   </component>
@@ -211,42 +207,54 @@
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
     <state x="1780" y="98" width="1480" height="852" key="DiffContextDialog/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579179526449" />
-    <state width="1634" height="261" key="GridCell.Tab.0.bottom" timestamp="1579265684221">
-      <screen x="1680" y="0" width="1680" height="1050" />
+    <state width="1493" height="141" key="GridCell.Tab.0.bottom" timestamp="1579353220852">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="141" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579353220852" />
     <state width="1634" height="261" key="GridCell.Tab.0.bottom/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
-    <state width="1634" height="261" key="GridCell.Tab.0.center" timestamp="1579265684221">
-      <screen x="1680" y="0" width="1680" height="1050" />
+    <state width="1493" height="141" key="GridCell.Tab.0.center" timestamp="1579353220852">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="141" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579353220852" />
     <state width="1634" height="261" key="GridCell.Tab.0.center/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
-    <state width="1634" height="261" key="GridCell.Tab.0.left" timestamp="1579265684221">
-      <screen x="1680" y="0" width="1680" height="1050" />
+    <state width="1493" height="141" key="GridCell.Tab.0.left" timestamp="1579353220852">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="141" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579353220852" />
     <state width="1634" height="261" key="GridCell.Tab.0.left/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
-    <state width="1634" height="261" key="GridCell.Tab.0.right" timestamp="1579265684221">
-      <screen x="1680" y="0" width="1680" height="1050" />
+    <state width="1493" height="141" key="GridCell.Tab.0.right" timestamp="1579353220852">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="141" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579353220852" />
     <state width="1634" height="261" key="GridCell.Tab.0.right/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
-    <state width="1634" height="261" key="GridCell.Tab.1.bottom" timestamp="1579265684221">
-      <screen x="1680" y="0" width="1680" height="1050" />
+    <state width="1493" height="230" key="GridCell.Tab.1.bottom" timestamp="1579353208536">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="230" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579353208536" />
     <state width="1634" height="261" key="GridCell.Tab.1.bottom/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
-    <state width="1634" height="261" key="GridCell.Tab.1.center" timestamp="1579265684221">
-      <screen x="1680" y="0" width="1680" height="1050" />
+    <state width="1493" height="230" key="GridCell.Tab.1.center" timestamp="1579353208536">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="230" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1579353208536" />
     <state width="1634" height="261" key="GridCell.Tab.1.center/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
-    <state width="1634" height="261" key="GridCell.Tab.1.left" timestamp="1579265684221">
-      <screen x="1680" y="0" width="1680" height="1050" />
+    <state width="1493" height="230" key="GridCell.Tab.1.left" timestamp="1579353208536">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="230" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1579353208536" />
     <state width="1634" height="261" key="GridCell.Tab.1.left/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
-    <state width="1634" height="261" key="GridCell.Tab.1.right" timestamp="1579265684221">
-      <screen x="1680" y="0" width="1680" height="1050" />
+    <state width="1493" height="230" key="GridCell.Tab.1.right" timestamp="1579353208536">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="230" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1579353208536" />
     <state width="1634" height="261" key="GridCell.Tab.1.right/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579265684221" />
     <state x="2003" y="101" width="1024" height="845" key="SettingsEditor" timestamp="1579165308837">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
     <state x="2003" y="101" width="1024" height="845" key="SettingsEditor/67.27.1613.1023/3360.35.1920.1080/1680.0.1680.1050@1680.0.1680.1050" timestamp="1579165308837" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1579340851640">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579340851640" />
     <state x="2146" y="255" width="747" height="538" key="find.popup" timestamp="1579259513715">
       <screen x="1680" y="0" width="1680" height="1050" />
     </state>
@@ -263,21 +271,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/decisiontree/DecisionTreeBuilderTest.java</url>
           <line>34</line>
           <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="45" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

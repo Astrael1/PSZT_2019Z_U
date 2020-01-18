@@ -15,8 +15,15 @@ public class Main
         Set<Record> trainSet = data.get(0);
         Set<Record> pruneSet = data.get(1);
         Set<Record> testSet = data.get(2);
+        System.out.println("sizes " + trainSet.size() + " " + pruneSet.size() + " " + testSet.size());
         DecisionTreeBuilder theBuilder = new DecisionTreeBuilder();
-        Node root = theBuilder.build(data.get(0));
+        Node root = theBuilder.build(trainSet);
+        root.printTree(0,0);
+        double res = root.evaluateDataSet(testSet);
+        System.out.println("Not pruned result: " + res);
+        Node prunedRoot = theBuilder.pruneTree(root, pruneSet);
+        double prunedRes = prunedRoot.evaluateDataSet(testSet);
+        System.out.println("Pruned result: " + prunedRes);
         System.out.println("done");
     }
 }
