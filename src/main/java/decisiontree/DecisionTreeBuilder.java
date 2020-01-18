@@ -176,25 +176,29 @@ public class DecisionTreeBuilder
         return firstNode;
     }
 
-    private boolean checkIfPrune(Node node, Set<Record> pruneSet) throws CloneNotSupportedException {
-        /*Node newNode = (Node) node.clone();
+    private Node tryToPrune(Node node, Set<Record> pruneSet) throws CloneNotSupportedException {
+        Node root = node.getRoot();
+        Node newNode = (Node) node.clone();
+        newNode.prune(pruneSet);
+        Node ancestor = node.ancestor;
+        int childIndex = ancestor.getChildIndex(node);
 
-        Node oldNodeRoot = node.getRoot();
-        Node newNodeRoot = newNode.getRoot();
+        double oldRes = root.evaluateDataSet(pruneSet);
 
-        newNode.makeLeaf(newNode.determineClass(pruneSet));
-
-        double oldRes = oldNodeRoot.evaluateDataSet(pruneSet);
-        double newRes = newNodeRoot.evaluateDataSet(pruneSet);
-        System.out.println("old eval: " + oldRes + " new eval: " + newRes);
-        return newRes > oldRes*/
-        return false;
+        ancestor.children.set(childIndex, newNode);
+        double newRes = root.evaluateDataSet(pruneSet);
+        if (newRes < oldRes) {
+            ancestor.children.set(childIndex, node);
+        }
+        return root;
     }
 
     public Node pruneTree(Node node, Set<Record> pruneSet) throws CloneNotSupportedException {
-        if(node.areChildrenLeaves() && checkIfPrune(node, pruneSet)) {
-            node.prune(pruneSet);
-            pruneTree(node.ancestor, pruneSet);
+        if(node.areChildrenLeaves() && !node.isLeaf) {
+            node = tryToPrune(node, pruneSet);
+            if(node.ancestor != null) {
+                pruneTree(node.ancestor, pruneSet);
+            }
         }
         else {
             for(Node i : node.children) {

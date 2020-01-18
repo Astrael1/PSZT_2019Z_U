@@ -61,8 +61,8 @@ public class CustomCSVReader
 
     private void setSizes(Set<Record> set) {
         int size = set.size();
-        int testSize = (int) (size * 0.3);
-        this.trainSize = (int) (size * 0.5);
+        int testSize = (int) (size * 0.4);
+        this.trainSize = (int) (size * 0.4);
         this.pruneSize = size - this.trainSize - testSize;
     }
 

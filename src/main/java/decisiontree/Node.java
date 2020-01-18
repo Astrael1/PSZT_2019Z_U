@@ -2,6 +2,7 @@ package decisiontree;
 
 import inputhandling.Record;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
 
@@ -85,6 +86,7 @@ public class Node implements Cloneable {
         }
         return count0 > count1 ? 0 : 1;
     }
+
     public Node getRoot() {
         if(this.ancestor == null) {
             return this;
@@ -96,7 +98,7 @@ public class Node implements Cloneable {
 
     public Object clone() throws CloneNotSupportedException {
         Node result = (Node)super.clone();
-        result.ancestor = this.ancestor == null ? null : new Node(this.ancestor);
+        result.ancestor = this.ancestor;
         result.decisionClass = this.decisionClass;
         result.isLeaf = this.isLeaf;
         result.children = new Vector<>();
@@ -117,7 +119,25 @@ public class Node implements Cloneable {
     }
 
     public void prune(Set<Record> dataSet) {
-        this.makeLeaf(this.determineClass(dataSet));
+        this.makeLeaf(this.determineClass(getRecordsAtNode(dataSet)));
     }
 
+    public int getChildIndex(Node node) {
+        for(int i = 0; i < 5; i++) {
+            if(node == children.get(i)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public Set<Record> getRecordsAtNode(Set<Record> input) {
+        if(this.ancestor == null) {
+            return input;
+        }
+        else {
+            input.removeIf(i -> !(i.getAttribute(this.ancestor.splitAttribute) == this.ancestor.getChildIndex(this)));
+            return this.ancestor.getRecordsAtNode(input);
+        }
+    }
 }
