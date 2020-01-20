@@ -60,7 +60,7 @@ public class Node implements Cloneable {
 
     public void printTree(int attrV, int lvl) {
         for(int i = 0; i < lvl; i++) {
-            System.out.print("  ");
+            System.out.print("   ");
         }
         if(this.isLeaf) {
             System.out.println("(" + attrV + ")C:" + decisionClass);
@@ -84,7 +84,7 @@ public class Node implements Cloneable {
                 count0++;
             }
         }
-        return count0 > count1 ? 0 : 1;
+        return count1 > count0 ? 1 : 0;
     }
 
     public Node getRoot() {
@@ -104,7 +104,8 @@ public class Node implements Cloneable {
         result.children = new Vector<>();
         if(!this.isLeaf) {
             for (int i = 0; i < 5; i++) {
-                result.children.insertElementAt((Node) this.children.elementAt(i).clone(), i);
+                result.children.insertElementAt((Node) this.children.elementAt(i).clone(), i); //z
+                result.children.get(i).ancestor = result;
             }
         }
         return result;
@@ -138,7 +139,9 @@ public class Node implements Cloneable {
         else {
             HashSet<Record> subset = new HashSet<>();
             for(Record i : input) {
-                if(i.getAttribute(this.ancestor.splitAttribute) == this.ancestor.getChildIndex(this)) {
+                int attr = this.ancestor.splitAttribute;
+                int childInd = this.ancestor.getChildIndex(this); //zwraca -1
+                if(i.getAttribute(attr) == childInd) {
                     subset.add(i);
                 }
             }

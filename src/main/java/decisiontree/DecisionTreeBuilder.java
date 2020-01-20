@@ -179,9 +179,10 @@ public class DecisionTreeBuilder
     private Node tryToPrune(Node node, Set<Record> pruneSet) throws CloneNotSupportedException {
         Node root = node.getRoot();
         Node newNode = (Node) node.clone();
-        newNode.prune(pruneSet);
+
         if(root == node) {
             double oldRes = root.evaluateDataSet(pruneSet);
+            newNode.prune(pruneSet);
             double newRes = newNode.evaluateDataSet(pruneSet);
             if(newRes > oldRes) {
                 root = newNode;
@@ -195,6 +196,7 @@ public class DecisionTreeBuilder
             double oldRes = root.evaluateDataSet(pruneSet);
 
             ancestor.children.set(childIndex, newNode);
+            newNode.prune(pruneSet);
             double newRes = root.evaluateDataSet(pruneSet);
             if (newRes <= oldRes) {
                 ancestor.children.set(childIndex, node);
