@@ -186,7 +186,7 @@ public class DecisionTreeBuilder
             double newRes = newNode.evaluateDataSet(pruneSet);
             if(newRes > oldRes) {
                 root = newNode;
-                System.out.println("Prune success " + newRes + " vs " + oldRes);
+                System.out.println("Prune success");
             }
         }
         else {
@@ -202,7 +202,7 @@ public class DecisionTreeBuilder
                 ancestor.children.set(childIndex, node);
             }
             else {
-                System.out.println("Prune success " + newRes + " vs " + oldRes);
+                System.out.println("Prune success");
             }
         }
         return root;
