@@ -87,7 +87,7 @@ public class DecisionTreeBuilder
     {
         Set<Double> weights = new HashSet<>();
 
-        for(Set set: subsets)
+        for(HashSet<Record> set: subsets)
         {
             weights.add(((double)set.size())/recordSetCount);
         }

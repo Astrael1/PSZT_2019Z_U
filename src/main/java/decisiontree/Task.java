@@ -9,8 +9,6 @@ public class Task {
     private Set<Record> recordSet;
     private Set<Integer> attributeSet;
 
-    Task() {}
-
     Task(Node node, Set<Record> recordSet, Set<Integer> attributeSet) {
         this.node = node;
         this.recordSet = recordSet;

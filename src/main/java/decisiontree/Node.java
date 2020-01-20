@@ -140,7 +140,7 @@ public class Node implements Cloneable {
             HashSet<Record> subset = new HashSet<>();
             for(Record i : input) {
                 int attr = this.ancestor.splitAttribute;
-                int childInd = this.ancestor.getChildIndex(this); //zwraca -1
+                int childInd = this.ancestor.getChildIndex(this);
                 if(i.getAttribute(attr) == childInd) {
                     subset.add(i);
                 }
