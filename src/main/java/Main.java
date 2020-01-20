@@ -12,9 +12,7 @@ public class Main
 
     private static CommandLine parseArguments(String args[]) throws ParseException {
         Options options = new Options();
-        options.addOption("t", false, "test option");
         options.addOption("l", true, "program learns from given source");
-        options.addOption("q", true, "program qualifies records from given source");
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd = parser.parse(options, args);
         return cmd;
@@ -23,17 +21,19 @@ public class Main
     {
         CommandLine arguments = parseArguments(args);
 
-        if(arguments.hasOption("t"))
+        String csvFilePath;
+
+        if(arguments.hasOption("l"))
         {
-            System.out.println("Podano opcje \'t\'");
+            csvFilePath = arguments.getOptionValue("l");
         }
         else
         {
-            System.out.println("Nie podano opcji \'t\'");
+            csvFilePath = System.getProperty("user.dir") + "/src/main/resources/divorce.csv";
         }
 
         CustomCSVReader cr = new CustomCSVReader();
-        Set<Record> dataSet = cr.read(System.getProperty("user.dir") + "/src/main/resources/divorce.csv");
+        Set<Record> dataSet = cr.read(csvFilePath);
         List<Set<Record>> data = cr.splitSets(dataSet);
         Set<Record> trainSet = data.get(0);
         Set<Record> pruneSet = data.get(1);
