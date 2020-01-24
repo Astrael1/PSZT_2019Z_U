@@ -16,6 +16,7 @@ public class Main
         List argsList = Arrays.asList(args);
         if(argsList.contains("-l")) {
         csvFilePath = (String) argsList.get(argsList.indexOf("-l") + 1);
+        csvFilePath = csvFilePath.substring(0,csvFilePath.length()-1); //on Linux I needed to remove the last character to make it work
         }
         else
         {
